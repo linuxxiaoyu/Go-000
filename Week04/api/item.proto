@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api;
+
+// The item service definition.
+service ItemService {
+    // Get an item
+    rpc AddItem(ItemRequest) returns (ItemResponse) {}
+}
+
+// The request message containing the item's name and price.
+message ItemRequest {
+    string name = 1;
+    float price = 2;
+}
+
+
+// The response message containing the item's id.
+message ItemResponse {
+    int32 id = 1;
+}
