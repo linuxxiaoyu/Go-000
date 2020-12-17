@@ -14,6 +14,7 @@ func (item *ItemService) AddItem(ctx context.Context, r *api.ItemRequest) (*api.
 	id, err := biz.AddItem(r.Name, r.Price)
 	if err == nil {
 		resp.Id = int32(id)
+
 	}
 	return &resp, err
 }
