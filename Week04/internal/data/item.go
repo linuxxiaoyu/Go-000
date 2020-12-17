@@ -14,7 +14,7 @@ type Item struct {
 }
 
 func IsNoRows(err error) bool {
-	return err == sql.ErrNoRows
+	return errors.Is(err, sql.ErrNoRows)
 }
 
 func GetItem(name string) (Item, error) {

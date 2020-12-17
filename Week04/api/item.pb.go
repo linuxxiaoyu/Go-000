@@ -8,14 +8,15 @@ package api
 
 import (
 	context "context"
+	reflect "reflect"
+	sync "sync"
+
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -29,7 +30,7 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-// The request message containing the item's id.
+// The request message containing the item's name and price.
 type ItemRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -85,7 +86,7 @@ func (x *ItemRequest) GetPrice() float32 {
 	return 0
 }
 
-// The response message containing the item's name and price.
+// The response message containing the item's id.
 type ItemResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
